@@ -1,15 +1,15 @@
 #Markdown preview
 Markdown-preview is a simple sinatra app to generate you the rendered html for a section of markdown. It requires:
 
+##Try this online
+[Go here](http://markdown-blog-preview.herokuapp.com/).
+##Try this at home
 * sinatra
 * redcarpet
 * pygmentize
 
 ``` ruby
-gem install sinatra
-gem install redcarpet
-gem install pygmentize
-ruby server.rb
+bundle install
+rackup
 ```
-
-Navigate your browser to http://localhost:4567
+navigate your browser to wherever rackup serves your app.
