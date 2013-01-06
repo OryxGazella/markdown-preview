@@ -1,5 +1,5 @@
 #Markdown preview
-Markdown-preview is a simple sinatra app to generate you the rendered html for a section of markdown. It requires:
+Markdown-preview is a simple sinatra app to generate you the rendered html for a section of markdown.
 
 ##Try this online
 [Go here](http://markdown-blog-preview.herokuapp.com/).
