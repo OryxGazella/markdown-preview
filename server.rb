@@ -1,20 +1,29 @@
 require 'sinatra'
 require 'redcarpet'
 require 'pygmentize'
+require 'json'
 
 get '/' do
   welcome_page = open('welcome.md'){|f| f.read}
-"""<!doctype html>
-   <html lang=\"en\">
+sprintf '''<!doctype html>
+   <html lang="en">
      <head>
-     <meta charset=\"utf-8\" />
-     <title>Redcarpet Markdown Preview Service</title>
+       <meta charset="utf-8" />
+       <title>Redcarpet Markdown Preview Service</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="description" content="Markdown preview service">
+       <meta name="author" content="Frank Smith">
+       <link rel="stylesheet" href="css/bootstrap.css">
+       <link rel="stylesheet" href="css/pygments.css">
+       <link rel="stylesheet" href="css/bootstrap-responsive.css">
      </head>
      <body>
-       #{generate_preview welcome_page}
+     <div class="container">
+       %s
+     </div>
      </body>
    </html>
-"""
+   ''',  (generate_preview welcome_page)
 end
 
 get '/welcome.md' do
@@ -22,7 +31,9 @@ get '/welcome.md' do
 end
 
 post "/" do
-  generate_preview params[:markdown]
+  request.body.rewind  # in case someone already read it
+  data = JSON.parse request.body.read
+  generate_preview data['markdown']
 end
 
 def generate_preview markdown 
