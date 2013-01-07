@@ -18,7 +18,7 @@ function PreviewCtrl($scope, $http, $timeout) {
 						$http.post('/', {markdown: $scope.markdown}).success(function(data) {
 								$scope.preview = data;
 						});
-				}, 500);
+				}, 1000);
 		};
 }
 PreviewCtrl.$inject = ['$scope', '$http', '$timeout'];

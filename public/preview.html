@@ -27,31 +27,31 @@
         </div>
 
         <div class="span7">
-          <h1>Preview</h1>
-          <div ng-bind-html-unsafe="preview"></div>
+          <div class="page-header">
+            <h1>Rendered</h1>
+          </div>
+          <div class="tab-content" id="tab-contents" >
+            <div class="tab-pane active" id="preview">
+              <div ng-bind-html-unsafe="preview"></div>
+            </div>
+
+            <div class="tab-pane" id="raw-html">
+              <div>
+                <pre>{{preview}}</pre>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="span1">
-            <!-- <ul class="nav nav-tabs" role="menu"> -->
-            <!--   <li> -->
-            <!--   <a href="#"> -->
-            <!--     Preview -->
-            <!--   </a> -->
-            <!--   </li> -->
-            <!--   <li> -->
-            <!--   <a href="#"> -->
-            <!--     Raw markup -->
-            <!--   </a> -->
-            <!--   </li> -->
-            <!-- </ul> -->
-            <!-- <div> -->
-            <!--   {{no_load}} -->
-            <!-- </div> -->
+          <ul class="nav nav-tabs nav-stacked">
+            <li class="active"><a href="#preview" data-toggle="tab">Preview</a><li>
+            <li><a href="#raw-html" data-toggle="tab">Raw Html</a></li>
+          </ul>
         </div>
         
       </div>
     <script src="lib/bootstrap/bootstrap.js"></script>
     <script src="js/controllers.js"></script>
   </body>
-
 </html>
