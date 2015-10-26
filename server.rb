@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'redcarpet'
-require 'pygmentize'
+require 'pygments'
 require 'json'
 
 get '/' do
@@ -46,7 +46,6 @@ end
 
 class PygmentizeHTML < Redcarpet::Render::HTML
   def block_code(code, language)
-    require 'pygmentize'
-    Pygmentize.process(code, language)
+    Pygments.highlight(code, :lexer => language)
   end
 end

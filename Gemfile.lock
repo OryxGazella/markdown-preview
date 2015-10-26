@@ -1,7 +1,10 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    pygmentize (0.0.3)
+    posix-spawn (0.3.11)
+    pygments.rb (0.6.3)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.2.0)
     rack (1.4.1)
     rack-protection (1.3.2)
       rack
@@ -11,11 +14,15 @@ GEM
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
     tilt (1.3.3)
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  pygmentize
+  pygments.rb
   redcarpet
   sinatra
+
+BUNDLED WITH
+   1.10.6
